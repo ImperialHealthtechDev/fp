@@ -4,8 +4,17 @@ import pandas as pd
 
 def simulasi_dana_pensiun():
     st.header("Simulasi Dana Pensiun")
-    st.write("Hitung berapa dana pensiun yang perlu Anda siapkan untuk masa depan.")
+    st.write("""
+        **Tentang Simulasi Dana Pensiun**  
+        Simulasi ini dirancang untuk membantu Anda menghitung dana yang dibutuhkan agar Anda dapat hidup nyaman setelah pensiun. Dengan mempertimbangkan inflasi dan return investasi, Anda bisa merencanakan dengan lebih tepat.
 
+        ### Manfaat Menggunakan Fitur Ini:
+        - **Perencanaan Keuangan di Masa Depan**: Pastikan Anda siap finansial di masa pensiun tanpa kekurangan dana.
+        - **Penyesuaian dengan Inflasi**: Menghitung proyeksi pengeluaran masa depan yang realistis.
+        - **Simulasi Detail**: Memberikan gambaran jelas tentang kebutuhan finansial dan proyeksi pengeluaran tahunan.
+    """)
+
+    # Form input untuk data simulasi
     with st.form("simulasi_pensiun_form"):
         pengeluaran_bulanan_pensiun = st.number_input(
             "Pengeluaran Bulanan di Masa Pensiun (Rp)", min_value=0, step=100000, format="%d")
@@ -20,6 +29,7 @@ def simulasi_dana_pensiun():
 
         submit_simulasi = st.form_submit_button("Hitung Dana Pensiun")
 
+    # Logika simulasi dan hasil
     if submit_simulasi:
         tahun_pensiun = umur_pensiun - umur_sekarang
         pengeluaran_tahunan = pengeluaran_bulanan_pensiun * 12
@@ -29,11 +39,15 @@ def simulasi_dana_pensiun():
 
         st.subheader("Hasil Simulasi Dana Pensiun")
         st.write(
-            f"Pengeluaran tahunan di masa pensiun: Rp {future_pengeluaran_tahunan:,.0f}")
+            f"**Pengeluaran tahunan di masa pensiun**: Rp {future_pengeluaran_tahunan:,.0f}")
         st.write(
-            f"Total dana pensiun yang dibutuhkan (4% rule): Rp {total_dana_pensiun:,.0f}")
+            f"**Total dana pensiun yang dibutuhkan (4% rule)**: Rp {total_dana_pensiun:,.0f}")
 
+        # Visualisasi proyeksi pengeluaran tahunan
         st.line_chart(pd.DataFrame({
             "Umur": list(range(umur_sekarang, umur_pensiun + 1)),
             "Proyeksi Pengeluaran Tahunan (Rp)": [pengeluaran_tahunan * ((1 + estimasi_inflasi / 100) ** i) for i in range(0, tahun_pensiun + 1)]
         }).set_index("Umur"))
+
+        # Rekomendasi untuk pengguna
+        st.info("Rekomendasi: Pertimbangkan untuk menyisihkan lebih banyak dana atau berinvestasi lebih agresif untuk mengamankan masa pensiun Anda.")

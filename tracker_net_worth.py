@@ -7,8 +7,15 @@ import os
 
 def tracker_net_worth():
     st.title("Tracker Net Worth")
-    st.write(
-        "Gunakan alat ini untuk melacak total kekayaan bersih Anda dari waktu ke waktu.")
+    st.write("""
+        **Tentang Tracker Net Worth**  
+        Alat ini membantu Anda mencatat dan memantau total kekayaan bersih Anda dari waktu ke waktu. Dengan melacak aset dan kewajiban secara berkala, Anda bisa mengukur kesehatan finansial Anda dan membuat perencanaan yang lebih baik.
+
+        ### Manfaat Menggunakan Fitur Ini:
+        - **Visualisasi Tren Keuangan**: Memantau tren kenaikan atau penurunan kekayaan bersih Anda dari waktu ke waktu.
+        - **Pengambilan Keputusan Finansial yang Lebih Baik**: Informasi yang akurat membantu Anda membuat keputusan keuangan yang lebih bijaksana.
+        - **Konsolidasi Data Keuangan**: Menyimpan dan mengelola data kekayaan bersih Anda dalam satu tempat yang aman.
+    """)
 
     # Path file untuk menyimpan data CSV
     file_path = "net_worth_data.csv"
@@ -54,6 +61,7 @@ def tracker_net_worth():
         st.dataframe(data_net_worth)
 
         # Visualisasi tren net worth
+        st.subheader("Tren Net Worth Anda")
         st.line_chart(data_net_worth.set_index('Tanggal')['Net Worth (Rp)'])
 
         # Ekspor data ke Excel

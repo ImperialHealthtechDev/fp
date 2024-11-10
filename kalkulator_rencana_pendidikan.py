@@ -4,8 +4,15 @@ import pandas as pd
 
 def kalkulator_rencana_pendidikan_anak():
     st.title("Kalkulator Rencana Pendidikan Anak")
-    st.write(
-        "Gunakan alat ini untuk merencanakan tabungan atau investasi pendidikan anak Anda.")
+    st.write("""
+        **Tentang Kalkulator Rencana Pendidikan Anak**  
+        Alat ini dirancang untuk membantu Anda merencanakan dan menghitung berapa biaya pendidikan yang perlu Anda siapkan untuk anak Anda, dengan mempertimbangkan tingkat inflasi dan jangka waktu hingga masuk ke jenjang pendidikan tertentu.
+
+        ### Manfaat Menggunakan Kalkulator Ini:
+        - **Perencanaan Keuangan yang Lebih Matang**: Mempermudah Anda memahami biaya yang akan datang dan mempersiapkan tabungan/investasi yang tepat.
+        - **Estimasi Proyeksi Biaya Pendidikan**: Menghitung proyeksi biaya di masa depan berdasarkan tingkat inflasi pendidikan.
+        - **Strategi Tabungan/Investasi**: Memberikan saran mengenai jumlah tabungan bulanan atau investasi yang dibutuhkan untuk mencapai target.
+    """)
 
     # Form input untuk data pendidikan anak
     with st.form("pendidikan_form"):

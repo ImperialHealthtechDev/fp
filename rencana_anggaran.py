@@ -6,8 +6,18 @@ from fpdf import FPDF
 
 
 def rencana_anggaran_bulanan():
+    # Header dan pengantar
     st.title("Rencana Anggaran Bulanan")
-    st.write("Gunakan alat ini untuk merencanakan dan melacak anggaran bulanan Anda.")
+    st.write("""
+        **Tentang Rencana Anggaran Bulanan:**
+        Fitur ini dirancang untuk membantu Anda merencanakan dan melacak anggaran bulanan Anda dengan efektif. 
+        Dengan mengetahui distribusi pengeluaran Anda, Anda dapat mengelola keuangan dengan lebih baik dan memastikan bahwa pengeluaran Anda sejalan dengan pendapatan yang tersedia.
+        
+        **Manfaat Menggunakan Fitur Ini:**
+        - **Kontrol Keuangan**: Pastikan pengeluaran Anda tidak melebihi pendapatan bulanan.
+        - **Visualisasi Pengeluaran**: Lihat distribusi pengeluaran Anda dalam bentuk grafik.
+        - **Ekspor Data**: Simpan data anggaran Anda ke dalam format Excel atau PDF untuk referensi di masa mendatang.
+    """)
 
     # Form input untuk anggaran berbagai kategori
     with st.form("anggaran_form"):
@@ -51,7 +61,7 @@ def rencana_anggaran_bulanan():
         st.subheader("Distribusi Pengeluaran")
         fig, ax = plt.subplots()
         ax.pie(data_anggaran["Jumlah (Rp)"],
-               labels=data_anggaran["Kategori"], autopct='%1.1f%%')
+               labels=data_anggaran["Kategori"], autopct='%1.1f%%', colors=["#FF9999", "#66B3FF", "#99FF99", "#FFCC99"])
         ax.axis('equal')  # Untuk membuat pie chart berbentuk lingkaran
         st.pyplot(fig)
 

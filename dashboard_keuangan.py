@@ -4,10 +4,15 @@ import matplotlib.pyplot as plt
 
 
 def dashboard_keuangan():
+    # Header dan pengantar
     st.title("Dashboard Keuangan")
-    st.write("Dapatkan ikhtisar lengkap keuangan Anda dalam satu halaman.")
+    st.write("""
+        **Selamat datang di Dashboard Keuangan Anda!**
+        Dashboard ini memberikan ikhtisar lengkap tentang keuangan Anda, mulai dari pendapatan, pengeluaran, hingga net worth. 
+        Lihat bagaimana kondisi keuangan Anda saat ini, pantau progres dana pensiun, dan evaluasi distribusi pengeluaran.
+    """)
 
-    # Simulasi data keuangan (dapat diintegrasikan dengan form data yang diinput sebelumnya)
+    # Input data keuangan
     pendapatan_bulanan = st.number_input(
         "Pendapatan Bulanan (Rp)", min_value=0, step=100000, format="%d", value=10000000)
     pengeluaran_bulanan = st.number_input(
@@ -32,8 +37,12 @@ def dashboard_keuangan():
     if net_worth < 0:
         st.error(
             "Net worth Anda negatif. Perlu ditinjau ulang pengeluaran atau aset Anda.")
+        st.write(
+            "**Tips**: Pertimbangkan untuk mengurangi pengeluaran atau meningkatkan pendapatan Anda.")
     else:
         st.success("Net worth Anda positif. Keuangan Anda dalam kondisi baik.")
+        st.write(
+            "**Tips**: Pertahankan pengelolaan keuangan ini dan pertimbangkan investasi jangka panjang.")
 
     # Visualisasi pie chart distribusi pengeluaran
     st.subheader("Distribusi Pengeluaran")
@@ -44,8 +53,9 @@ def dashboard_keuangan():
     df_pengeluaran = pd.DataFrame(data_pengeluaran)
 
     fig, ax = plt.subplots()
+    colors = ["#66b3ff", "#ff9999"]
     ax.pie(df_pengeluaran["Jumlah (Rp)"],
-           labels=df_pengeluaran["Kategori"], autopct='%1.1f%%')
+           labels=df_pengeluaran["Kategori"], autopct='%1.1f%%', colors=colors)
     ax.axis('equal')  # Membuat pie chart berbentuk lingkaran
     st.pyplot(fig)
 

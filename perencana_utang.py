@@ -1,11 +1,21 @@
 import streamlit as st
 import pandas as pd
+import io
 
 
 def perencana_pembayaran_utang():
     st.title("Perencana Pembayaran Utang - Debt Snowball Calculator")
-    st.write(
-        "Gunakan alat ini untuk merencanakan pembayaran utang Anda dengan metode debt snowball.")
+    st.write("""
+        **Tentang Perencana Pembayaran Utang**  
+        Alat ini dirancang untuk membantu Anda merencanakan pembayaran utang dengan metode debt snowball, di mana Anda melunasi utang dari jumlah terkecil hingga terbesar untuk memotivasi Anda dalam perjalanan menuju kebebasan finansial.
+
+        ### Manfaat Menggunakan Fitur Ini:
+        - **Motivasi Melunasi Utang**: Fokus pada pelunasan utang terkecil terlebih dahulu memberikan kepuasan cepat dan mendorong Anda untuk terus melanjutkan.
+        - **Pengelolaan Keuangan yang Lebih Terstruktur**: Membantu Anda memahami jumlah total utang dan bagaimana cara melunasinya dengan rencana yang jelas.
+        - **Visualisasi Progres**: Melihat progres pelunasan utang untuk memotivasi dan menjaga komitmen.
+
+        Masukkan rincian utang Anda untuk memulai perencanaan pembayaran.
+    """)
 
     # Input data utang
     st.subheader("Masukkan Data Utang")
@@ -70,4 +80,4 @@ def perencana_pembayaran_utang():
 
         # Menampilkan ringkasan untuk motivasi pengguna
         st.success(
-            "Selamat! Anda memiliki rencana untuk melunasi utang dengan metode debt snowball.")
+            "Selamat! Anda memiliki rencana untuk melunasi utang dengan metode debt snowball. Lanjutkan dengan disiplin untuk mencapai kebebasan finansial!")

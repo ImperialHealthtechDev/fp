@@ -2,7 +2,16 @@ import streamlit as st
 
 
 def kalkulator_investasi():
-    st.header("Kalkulator Investasi Compound Interest")
+    st.title("Kalkulator Investasi Compound Interest")
+    st.write("""
+        **Tentang Kalkulator Investasi Compound Interest**  
+        Alat ini dirancang untuk membantu Anda menghitung potensi pertumbuhan investasi Anda dari waktu ke waktu dengan metode bunga majemuk. Dengan kalkulator ini, Anda dapat memperkirakan seberapa besar investasi Anda akan berkembang jika Anda menambahkan kontribusi secara rutin dan mempertahankan tingkat pengembalian tertentu.
+
+        ### Manfaat Menggunakan Kalkulator Ini:
+        - **Simulasi Pertumbuhan Investasi**: Membantu Anda memahami bagaimana kontribusi bulanan dan tingkat pengembalian tahunan memengaruhi hasil akhir.
+        - **Perencanaan Jangka Panjang**: Memberikan gambaran tentang total investasi yang dapat dicapai dalam jangka waktu yang diinginkan.
+        - **Keputusan Finansial yang Lebih Baik**: Mempermudah perencanaan keuangan dan penentuan strategi investasi untuk mencapai tujuan finansial Anda.
+    """)
 
     with st.form("kalkulator_form"):
         investasi_awal = st.number_input(
@@ -31,4 +40,5 @@ def kalkulator_investasi():
         st.write(
             f"Total nilai investasi setelah {jangka_waktu} tahun: Rp {total:,.0f}")
 
+        # Menampilkan grafik pertumbuhan investasi
         st.line_chart(total_akhir)

@@ -4,7 +4,15 @@ import pandas as pd
 
 def kalkulator_kelayakan_investasi_properti():
     st.title("Kalkulator Kelayakan Investasi Properti")
-    st.write("Gunakan alat ini untuk mengevaluasi apakah investasi properti layak berdasarkan biaya dan potensi penghasilan.")
+    st.write("""
+        **Tentang Kalkulator Kelayakan Investasi Properti**  
+        Alat ini dirancang untuk membantu Anda mengevaluasi apakah investasi properti Anda layak dilanjutkan berdasarkan perhitungan biaya dan potensi penghasilan. Mengetahui ROI (Return on Investment) dari sebuah properti membantu Anda membuat keputusan investasi yang cerdas dan terinformasi.
+
+        ### Manfaat Menggunakan Kalkulator Ini:
+        - **Evaluasi Keuntungan Finansial**: Memahami potensi keuntungan dari investasi properti Anda secara tahunan.
+        - **Pengambilan Keputusan yang Lebih Baik**: Mengetahui ROI membantu Anda memutuskan apakah properti ini adalah pilihan investasi yang tepat.
+        - **Perencanaan Keuangan yang Lebih Tepat**: Mengidentifikasi biaya tersembunyi dan potensi penghasilan agar Anda dapat merencanakan anggaran dengan lebih efektif.
+    """)
 
     # Form input untuk data investasi properti
     with st.form("investasi_properti_form"):
@@ -29,10 +37,11 @@ def kalkulator_kelayakan_investasi_properti():
         # Menampilkan hasil
         st.subheader("Hasil Kalkulasi Investasi Properti")
         st.write(
-            f"Total Penghasilan Tahunan: Rp {total_penghasilan_tahunan:,.0f}")
-        st.write(f"Total Biaya Tahunan: Rp {total_biaya_tahunan:,.0f}")
-        st.write(f"Net Penghasilan Tahunan: Rp {net_penghasilan_tahunan:,.0f}")
-        st.write(f"Return on Investment (ROI): {roi:.2f}%")
+            f"**Total Penghasilan Tahunan**: Rp {total_penghasilan_tahunan:,.0f}")
+        st.write(f"**Total Biaya Tahunan**: Rp {total_biaya_tahunan:,.0f}")
+        st.write(
+            f"**Net Penghasilan Tahunan**: Rp {net_penghasilan_tahunan:,.0f}")
+        st.write(f"**Return on Investment (ROI)**: {roi:.2f}%")
 
         # Analisis kelayakan
         if roi > 5:  # Ambang batas ROI 5% sebagai contoh

@@ -6,7 +6,16 @@ from fpdf import FPDF
 
 def perencana_pembelian_aset_besar():
     st.title("Perencana Pembelian Aset Besar")
-    st.write("Rencanakan pembelian aset besar seperti rumah, kendaraan, atau pendidikan anak dengan fitur ini.")
+    st.write("""
+        **Tentang Perencana Pembelian Aset Besar**  
+        Alat ini dirancang untuk membantu Anda merencanakan pembelian aset bernilai tinggi seperti rumah, kendaraan, atau pendidikan anak. 
+        Dengan perencanaan ini, Anda dapat mengetahui apakah alokasi tabungan dan investasi Anda sudah cukup untuk mencapai target tersebut.
+
+        ### Manfaat Menggunakan Fitur Ini:
+        - **Perencanaan Keuangan yang Lebih Tepat**: Membantu Anda menyesuaikan alokasi tabungan untuk mencapai target.
+        - **Simulasi Investasi**: Menyediakan perbandingan antara tabungan biasa dan tabungan dengan investasi.
+        - **Keputusan Keuangan yang Lebih Cerdas**: Memberikan informasi tentang strategi terbaik untuk mencapai tujuan finansial Anda.
+    """)
 
     # Form input untuk perencanaan pembelian aset
     with st.form("aset_besar_form"):

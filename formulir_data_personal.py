@@ -6,8 +6,22 @@ from fpdf import FPDF
 
 
 def formulir_data_personal():
+    # Header dan pengantar
     st.header("Formulir Data Personal")
+    st.write("""
+        **Tentang Formulir Data Personal:**
+        Formulir ini membantu Anda memulai perjalanan menuju kebebasan finansial. 
+        Dengan mengisi data pribadi seperti pendapatan dan pengeluaran bulanan, Anda 
+        dapat memperoleh wawasan mendalam tentang kondisi keuangan Anda saat ini.
+        Data ini juga menjadi dasar untuk simulasi dan perhitungan finansial di fitur lainnya.
+        
+        **Manfaat Mengisi Formulir Ini:**
+        - **Memahami Kesehatan Keuangan**: Dapatkan gambaran lengkap tentang keuangan Anda.
+        - **Mendukung Perencanaan Keuangan Lainnya**: Data ini digunakan untuk simulasi dana pensiun, investasi, dan lainnya.
+        - **Identifikasi Area Penghematan**: Temukan peluang untuk mengoptimalkan pengeluaran.
+    """)
 
+    # Form untuk input data personal
     with st.form("personal_form"):
         nama = st.text_input("Nama")
         tahun_lahir = st.number_input(

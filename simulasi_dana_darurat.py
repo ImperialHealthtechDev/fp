@@ -3,7 +3,15 @@ import streamlit as st
 
 def simulasi_dana_darurat():
     st.title("Simulasi Dana Darurat")
-    st.write("Alat ini membantu Anda menghitung berapa banyak dana darurat yang perlu disiapkan berdasarkan pengeluaran bulanan.")
+    st.write("""
+        **Tentang Simulasi Dana Darurat**  
+        Simulasi ini dirancang untuk membantu Anda menghitung dan mempersiapkan dana darurat yang cukup untuk menghadapi situasi tak terduga, seperti kehilangan pekerjaan atau kebutuhan mendesak lainnya.
+
+        ### Manfaat Menggunakan Fitur Ini:
+        - **Perencanaan Keuangan yang Lebih Aman**: Memastikan Anda memiliki dana yang cukup untuk bertahan dalam situasi darurat.
+        - **Menentukan Prioritas**: Membantu Anda memahami pentingnya alokasi keuangan untuk dana darurat.
+        - **Kemudahan dalam Perhitungan**: Memberikan perhitungan cepat berdasarkan pengeluaran bulanan Anda.
+    """)
 
     # Form input untuk pengeluaran bulanan dan jumlah bulan yang diinginkan
     with st.form("form_dana_darurat"):
@@ -27,7 +35,7 @@ def simulasi_dana_darurat():
             st.info("Anda telah memilih untuk mempersiapkan dana darurat lebih dari satu tahun. Ini adalah langkah yang sangat aman dan cerdas!")
 
         # Opsi untuk menampilkan rincian
-        st.write("Rincian:")
-        st.write(f"Pengeluaran Bulanan: Rp {pengeluaran_bulanan:,.0f}")
-        st.write(f"Jumlah Bulan: {jumlah_bulan}")
-        st.write(f"Total Dana Darurat: Rp {total_dana_darurat:,.0f}")
+        st.write("### Rincian:")
+        st.write(f"- **Pengeluaran Bulanan**: Rp {pengeluaran_bulanan:,.0f}")
+        st.write(f"- **Jumlah Bulan**: {jumlah_bulan}")
+        st.write(f"- **Total Dana Darurat**: Rp {total_dana_darurat:,.0f}")
